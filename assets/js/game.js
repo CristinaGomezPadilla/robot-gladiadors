@@ -7,37 +7,8 @@ var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"]; enemyNames[0];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
-//console.log(enemyNames.length);
-//for (var i = 0; i < enemyNames.length; i++) {
-// console.log(enemyNames[i]);
-//console.log(i);
-//console.log(enemyNames[i] + " is at " + i + " index");
-//}
 
 var fight = function (enemyName) {
-
-  if (playerHealth > 0) {
-    // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
-
-    // pick new enemy to fight based on the index of the enemyNames array
-    var pickedEnemyName = enemyNames[i];
-
-    // reset enemyHealth before starting new fight
-    enemyHealth = 50;
-
-    // use debugger to pause script from running and check what's going on at that moment in the code
-    // debugger;
-
-    // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
-    fight(pickedEnemyName);
-  }
-
-  else {
-    window.alert("You have lost your robot in battle! Game Over!");
-    break;
-  }
-
   while (playerHealth > 0 && enemyHealth > 0) {
     // ask user if they'd liked to fight or run
     var promptFight = window.prompt('Would you like FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
@@ -91,41 +62,21 @@ var fight = function (enemyName) {
       window.alert(playerName + ' still has ' + playerHealth + ' health left.');
     }
   }
+};
 
-  else {
-  fight();
-}
+if (playerHealth > 0) {
+  window.alert("Welcome to Robot Gladiators! Round " + (i + 1));
 
-    else {
-  window.alert("You need to pick a valid option. Try again!");
-}
+  var pickedEnemyName = enemyNames[i];
 
-enemyHealth = enemyHealth - playerAttack;
+  enemyHealth = 50;
 
-console.log(
-  playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
-);
-
-if (enemyHealth <= 0) {
-  window.alert(enemyName + " has died!");
+  fight(pickedEnemyName);
 }
 
 else {
-  window.alert(enemyName + " still has " + enemyHealth + " health left.");
-}
-
-
-playerHealth = playerHealth - enemyAttack;
-
-console.log(
-  enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
-);
-
-if (playerHealth <= 0) {
-  window.alert(playerName + " has died!");
-}
-else {
-  window.alert(playerName + " still has " + playerHealth + " health left.");
+  window.alert("You have lost your robot in battle! Game Over!");
+  break;
 }
 
 for (var i = 0; i < enemyNames.length; i++) {
@@ -133,7 +84,3 @@ for (var i = 0; i < enemyNames.length; i++) {
   enemyHealth = 50;
   fight(pickedEnemyName);
 }
-
-startGame()
-endGame()
-shop()
